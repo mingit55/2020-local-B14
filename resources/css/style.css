@@ -1,0 +1,687 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "나눔스퀘어", sans-serif;
+}
+a, button, label{ cursor: pointer; user-select: none; }
+p { margin-bottom: 0; word-break: keep-all; line-height: 1.5em; }
+input:focus, button:focus { outline: none; }
+a, a:hover { text-decoration: none; }
+
+
+.d-between { display: flex; justify-content: space-between; align-items: center; }
+.position-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.font-weight-bolder { font-weight: 900; }
+.segoe { font-family: "Segoe UI", sans-serif; }
+.fit-cover { width: 100%; height: 100%; object-fit: cover; }
+.padding { padding-top: 6em; padding-bottom: 6em; }
+.text-ellipsis { width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis }
+.text-nowrap { white-space: nowrap; }
+
+/* 버튼 */
+button {
+    background-color: transparent;
+    border: none;
+    font-size: 0.9em;
+    padding: 0.8em 1.8em;
+}
+button:hover { opacity: 0.8; }
+
+.button-label {
+    position: relative;
+    background-color: #30475e;
+    color: #fff;
+    padding: 0.8em 2.2em;
+    transition: 0.4s;
+}
+.button-label:hover { background-color: #222831; opacity: 1; }
+
+.button-label::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    border-style: solid;
+    border-width: 8px;
+    border-color: #fff transparent transparent #fff;
+    transition: 0.4s;
+}
+.button-label:hover::before { border-width: 0; }
+
+/* /버튼 */
+
+/* 색상 */
+.text-gray { color: #ccc; }
+.bg-gray { background-color: #f7f7f7; }
+
+.text-gold { color: #c1a57b; }
+.bg-gold { background-color: #c1a57b; }
+
+.text-blue { color: #30475e; }
+.bg-blue { background-color: #30475e; }
+
+.text-darkblue { color: #222831; }
+.bg-darkblue { background-color: #222831; }
+
+/* /색상 */
+
+/* 텍스트 사이즈 */
+.fx-n3 { font-size: 0.85em; }
+.fx-n2 { font-size: 0.9em; }
+.fx-n1 { font-size: 0.95em; }
+
+.fx-1 { font-size: 1em; }
+.fx-2 { font-size: 1.2em; }
+.fx-3 { font-size: 1.4em; }
+.fx-4 { font-size: 1.6em; }
+.fx-5 { font-size: 1.8em; }
+.fx-6 { font-size: 2em; }
+.fx-7 { font-size: 4em; }
+.fx-8 { font-size: 5em; }
+/* /텍스트 사이즈 */
+
+/* 테이블 */
+
+.table-head, .table-item { display: flex; align-items: center; text-align: center; }
+.table-head { height: 50px; border-bottom: 2px solid #ddd; color: #555; font-size: 0.9em; }
+.table-item { min-height: 100px; padding: 1em 0; }
+.table-item:not(:last-child) { border-bottom: 1px solid #ddd; }
+
+.cell-50 { max-width: 50%; flex: 0 0 50%; }
+.cell-40 { max-width: 40%; flex: 0 0 40%; }
+.cell-30 { max-width: 30%; flex: 0 0 30%; }
+.cell-20 { max-width: 20%; flex: 0 0 20%; }
+.cell-15 { max-width: 15%; flex: 0 0 15%; }
+.cell-10 { max-width: 10%; flex: 0 0 10%; }
+
+/* /테이블 */
+
+/* 타이틀 */
+.title { font-size: 2em; color: #222831; }
+.title::first-letter { color: #c1a57b; }
+/* /타이틀 */
+
+/* 헤더 영역 */
+
+header {
+    height: 700px;
+    margin-bottom: 130px;
+    background-color: #222831;
+}
+header.no-visual {
+    height: 130px;
+    margin-bottom: 0;
+}
+
+#gnb {
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+    height: 130px;
+    margin: 0 auto;
+    z-index: 1030;
+}
+
+@media(max-width: 992px){
+    header { margin-bottom: 0; }
+    header.no-visual { height: 80px; }
+    #gnb { position: absolute; left: 0; top: 0; height: 80px; }
+}
+
+#gnb a { color: #ccc; font-size: 0.9em; }
+#gnb a:hover { color: #c1a57b; }
+
+#gnb .nav a { display: block; width: 7em; text-align: center; }
+#gnb .nav .icon { display: block; }
+
+#gnb .auth a { margin-left: 1.5em; }
+
+
+#gnb .menu-icon {
+    width: 2em; height: 2em;
+    position: relative;
+    z-index: 2;
+}
+
+#gnb .menu-icon > div {
+    width: 1.6em; height: 1px;
+    position: absolute;
+    left: 0.2em; top: 1em;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+#gnb .menu-icon > div:nth-child(1) { top: 0.4em; }
+#gnb .menu-icon > div:nth-child(3) { top: 1.6em; }
+
+#gnb:hover .menu-icon > div:nth-child(1) { top: 1em; transform: rotate(45deg); background-color: #c1a57b; }
+#gnb:hover .menu-icon > div:nth-child(2) { top: 1em; transform: rotate(45deg); background-color: #c1a57b; }
+#gnb:hover .menu-icon > div:nth-child(3) { top: 1em; transform: rotate(-45deg); background-color: #c1a57b; }
+
+
+#gnb .menu {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    z-index: 1;
+    background-color: #000c;
+    transition: 0.4s;
+}
+
+#gnb .menu .inner {
+    max-width: 380px;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+
+#gnb .m-nav a {
+    display: block;
+    padding: 0.5em 0;
+}
+
+#gnb .m-auth a {
+    display: inline-block;
+    margin-top: 0.5em;
+    margin-right: 1.5em;
+}
+
+#gnb:hover .menu { height: 400px; }
+
+/* /헤더 영역 */
+
+/* 비주얼 영역 */
+#visual {
+    height: 700px;
+    max-width: 1440px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 20px #000c;
+    margin: 0 auto;
+}
+
+#visual .design-line {
+    position: absolute;
+    width: 100vw; height: 1px;
+    background-color: #fff;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+#visual .design-line:nth-child(1) { left: 60vw; top: 120px; }
+#visual .design-line:nth-child(2) { right: 70vw; bottom: 120px; }
+
+#visual .images {
+    width: 300%; height: 100%;
+    display: flex;
+}
+
+#visual img {
+    width: calc(100% / 3); height: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
+}
+
+@keyframes slide-1 {
+    0% { transform: translate( calc(-100% / 3 * 0) ) }
+    20% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 1) ) }
+    45% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 2) ) }
+    70% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 1) ) }
+    95% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 0) ) }
+}
+
+@keyframes slide-2 {
+    0% { transform: translate( calc(-100% / 3 * 1) ) }
+    20% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 2) ) }
+    45% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 1) ) }
+    70% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 0) ) }
+    95% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes slide-3 {
+    0% { transform: translate( calc(-100% / 3 * 2) ) }
+    20% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 1) ) }
+    45% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 0) ) }
+    70% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 1) ) }
+    95% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 2) ) }
+}
+
+@keyframes slide-4 {
+    0% { transform: translate( calc(-100% / 3 * 1) ) }
+    20% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 0) ) }
+    45% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 1) ) }
+    70% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 2) ) }
+    95% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes leftToCenter {
+    from { transform: translate( calc(-100% / 3 * 0) ) }
+    to   { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes rightToCenter {
+    from { transform: translate( calc(-100% / 3 * 2) ) }
+    to   { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes slide-1-copy {
+    0% { transform: translate( calc(-100% / 3 * 0) ) }
+    20% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 1) ) }
+    45% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 2) ) }
+    70% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 1) ) }
+    95% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 0) ) }
+}
+
+@keyframes slide-2-copy {
+    0% { transform: translate( calc(-100% / 3 * 1) ) }
+    20% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 2) ) }
+    45% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 1) ) }
+    70% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 0) ) }
+    95% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes slide-3-copy {
+    0% { transform: translate( calc(-100% / 3 * 2) ) }
+    20% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 1) ) }
+    45% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 0) ) }
+    70% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 1) ) }
+    95% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 2) ) }
+}
+
+@keyframes slide-4-copy {
+    0% { transform: translate( calc(-100% / 3 * 1) ) }
+    20% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    25% { transform: translate( calc(-100% / 3 * 0) ) }
+    45% { transform: translate( calc(-100% / 3 * 0) ) }
+
+    50% { transform: translate( calc(-100% / 3 * 1) ) }
+    70% { transform: translate( calc(-100% / 3 * 1) ) }
+
+    75% { transform: translate( calc(-100% / 3 * 2) ) }
+    95% { transform: translate( calc(-100% / 3 * 2) ) }
+
+    100% { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes leftToCenter-copy {
+    from { transform: translate( calc(-100% / 3 * 0) ) }
+    to   { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+@keyframes rightToCenter-copy {
+    from { transform: translate( calc(-100% / 3 * 2) ) }
+    to   { transform: translate( calc(-100% / 3 * 1) ) }
+}
+
+#visual .images {
+    animation-duration: 10s;
+    animation-delay: calc(-10s + 0.5s);
+    animation-iteration-count: infinite;
+}
+
+#slide-1:checked ~ #visual .images { animation-name: slide-1; }
+#slide-2:checked ~ #visual .images { animation-name: slide-2; }
+#slide-3:checked ~ #visual .images { animation-name: slide-3; }
+#slide-4:checked ~ #visual .images { animation-name: slide-4; }
+#slide-5:checked ~ #visual .images {
+    animation-name: slide-4, leftToCenter;
+    animation-duration: 10s, 0.5s;
+    animation-delay: 0s, 0s;
+    animation-iteration-count: infinite, 1;
+}
+#slide-6:checked ~ #visual .images {
+    animation-name: slide-2, rightToCenter;
+    animation-duration: 10s, 0.5s;
+    animation-delay: 0s, 0s;
+    animation-iteration-count: infinite, 1;
+}
+
+#slide-1-copy:checked ~ #visual .images { animation-name: slide-1-copy; }
+#slide-2-copy:checked ~ #visual .images { animation-name: slide-2-copy; }
+#slide-3-copy:checked ~ #visual .images { animation-name: slide-3-copy; }
+#slide-4-copy:checked ~ #visual .images { animation-name: slide-4-copy; }
+#slide-5-copy:checked ~ #visual .images {
+    animation-name: slide-4-copy, leftToCenter-copy;
+    animation-duration: 10s, 0.5s;
+    animation-delay: 0s, 0s;
+    animation-iteration-count: infinite, 1;
+}
+#slide-6-copy:checked ~ #visual .images {
+    animation-name: slide-2-copy, rightToCenter-copy;
+    animation-duration: 10s, 0.5s;
+    animation-delay: 0s, 0s;
+    animation-iteration-count: infinite, 1;
+}
+
+
+
+#visual .buttons {
+    position: absolute;
+    left: 50%;
+    bottom: 80px;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+#visual .s-btn {
+    width: 2em; height: 2em;
+    text-align: center; line-height: 2em;
+    color: #c1a57b;
+    border: 1px solid #c1a57b;
+    position: relative;
+}
+
+#visual .s-btn label {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+}
+
+@keyframes label-1 {
+    0%      { z-index: 1; }
+    20%     { z-index: 1; }
+
+    20.001% { z-index: 0; }
+    45%     { z-index: 0; }
+
+    45.001% { z-index: 0; }
+    70%     { z-index: 0; }
+
+    70.001% { z-index: 0; }
+    95%     { z-index: 0; }
+
+    95.001% { z-index: 1; }
+    100%    { z-index: 1; }
+}
+@keyframes label-2 {
+    0%      { z-index: 0; }
+    20%     { z-index: 0; }
+
+    20.001% { z-index: 1; }
+    45%     { z-index: 1; }
+
+    45.001% { z-index: 0; }
+    70%     { z-index: 0; }
+
+    70.001% { z-index: 0; }
+    95%     { z-index: 0; }
+
+    95.001% { z-index: 0; }
+    100%    { z-index: 0; }
+}
+@keyframes label-3 {
+    0%      { z-index: 0; }
+    20%     { z-index: 0; }
+
+    20.001% { z-index: 0; }
+    45%     { z-index: 0; }
+
+    45.001% { z-index: 1; }
+    70%     { z-index: 1; }
+
+    70.001% { z-index: 0; }
+    95%     { z-index: 0; }
+
+    95.001% { z-index: 0; }
+    100%    { z-index: 0; }
+}
+@keyframes label-4 {
+    0%      { z-index: 0; }
+    20%     { z-index: 0; }
+
+    20.001% { z-index: 0; }
+    45%     { z-index: 0; }
+
+    45.001% { z-index: 0; }
+    70%     { z-index: 0; }
+
+    70.001% { z-index: 1; }
+    95%     { z-index: 1; }
+
+    95.001% { z-index: 0; }
+    100%    { z-index: 0; }
+}
+
+#visual label {
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+#slide-1:checked ~ #visual .label-1-copy, #slide-1-copy:checked ~ #visual .label-1 { animation-name: label-1; }
+#slide-1:checked ~ #visual .label-2-copy, #slide-1-copy:checked ~ #visual .label-2 { animation-name: label-2; }
+#slide-1:checked ~ #visual .label-3-copy, #slide-1-copy:checked ~ #visual .label-3 { animation-name: label-3; }
+#slide-1:checked ~ #visual .label-4-copy, #slide-1-copy:checked ~ #visual .label-4 { animation-name: label-4; }
+
+#slide-6:checked ~ #visual .label-1-copy, #slide-6-copy:checked ~ #visual .label-1, #slide-2:checked ~ #visual .label-1-copy, #slide-2-copy:checked ~ #visual .label-1 { animation-name: label-4; }
+#slide-6:checked ~ #visual .label-2-copy, #slide-6-copy:checked ~ #visual .label-2, #slide-2:checked ~ #visual .label-2-copy, #slide-2-copy:checked ~ #visual .label-2 { animation-name: label-1; }
+#slide-6:checked ~ #visual .label-3-copy, #slide-6-copy:checked ~ #visual .label-3, #slide-2:checked ~ #visual .label-3-copy, #slide-2-copy:checked ~ #visual .label-3 { animation-name: label-2; }
+#slide-6:checked ~ #visual .label-4-copy, #slide-6-copy:checked ~ #visual .label-4, #slide-2:checked ~ #visual .label-4-copy, #slide-2-copy:checked ~ #visual .label-4 { animation-name: label-3; }
+
+#slide-3:checked ~ #visual .label-1-copy, #slide-3-copy:checked ~ #visual .label-1 { animation-name: label-3; }
+#slide-3:checked ~ #visual .label-2-copy, #slide-3-copy:checked ~ #visual .label-2 { animation-name: label-4; }
+#slide-3:checked ~ #visual .label-3-copy, #slide-3-copy:checked ~ #visual .label-3 { animation-name: label-1; }
+#slide-3:checked ~ #visual .label-4-copy, #slide-3-copy:checked ~ #visual .label-4 { animation-name: label-2; }
+
+#slide-5:checked ~ #visual .label-1-copy, #slide-5-copy:checked ~ #visual .label-1, #slide-4:checked ~ #visual .label-1-copy, #slide-4-copy:checked ~ #visual .label-1 { animation-name: label-2; }
+#slide-5:checked ~ #visual .label-2-copy, #slide-5-copy:checked ~ #visual .label-2, #slide-4:checked ~ #visual .label-2-copy, #slide-4-copy:checked ~ #visual .label-2 { animation-name: label-3; }
+#slide-5:checked ~ #visual .label-3-copy, #slide-5-copy:checked ~ #visual .label-3, #slide-4:checked ~ #visual .label-3-copy, #slide-4-copy:checked ~ #visual .label-3 { animation-name: label-4; }
+#slide-5:checked ~ #visual .label-4-copy, #slide-5-copy:checked ~ #visual .label-4, #slide-4:checked ~ #visual .label-4-copy, #slide-4-copy:checked ~ #visual .label-4 { animation-name: label-1; }
+
+/* /비주얼 영역 */
+
+/* 온라인 집들이 */
+
+.knowhow-item .image {
+    position: relative; overflow: hidden;
+    height: 200px;
+}
+
+.knowhow-item .image::before, .knowhow-item .image::after {
+    position: absolute; left: 20px; bottom: 20px;
+    width: 20px; padding-top: 0.5em; border-top: 1px solid #fff;
+    color: #fff; transition: 0.4s;
+}
+.knowhow-item .image::before { content: 'Before' }
+.knowhow-item .image::after { content: 'After'; opacity: 0; }
+
+.knowhow-item .image:hover::before { opacity: 0; }
+.knowhow-item .image:hover::after { opacity: 1; }
+
+.knowhow-item .image img:last-child { position: absolute; left: 100%; top: 0; transition: 0.4s; }
+.knowhow-item .image:hover img:last-child { left: 0; }
+
+/* /온라인 집들이 */
+
+/* 전문가 영역 */
+
+.design-text {
+    position: absolute;
+    left: 0; top: 0;
+    transform: rotate(90deg);
+    transform-origin: 10%;
+    font-weight: 900;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 10em;
+    color: #fff;
+    opacity: 0.1;
+}
+
+.expert-item { opacity: 1; }
+.expert-item:nth-child(2n - 1) { transform: translateY(-40px) }
+.expert-item:nth-child(2n) { transform: translateY(40px) }
+
+.expert-item .inner {
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.expert-item .front, .expert-item .back {
+    position: absolute; left: 0; top: 0;
+    width: 100%; height: 100%;
+    transition: transform 1s;
+    overflow: hidden;
+}
+.expert-item .back {
+    transform: rotateY(-180deg);
+    box-shadow: -5px 5px 10px #000a;
+}
+
+.expert-item img {
+    width: 180%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+@media(max-width: 992px){
+    .expert-item:nth-child(2n) img { left: 0; right: auto; }
+}
+
+.expert-item:hover .front { transform: rotateY(180deg); }
+.expert-item:hover .back { transform: rotateY(0deg); }
+
+/* /전문가 영역 */
+
+/* 전문가 시공후기 */
+.review-item { display: flex; }
+.review-item .image {
+    height: 200px;
+    max-width: 150px;
+    flex: 0 0 150px;
+}
+.review-item .text {
+    height: 100%;
+    max-width: calc(100% - 150px);
+    flex: 0 0 calc(100% - 150px);
+}
+
+/* /전문가 시공후기 */
+
+
+/* 스토어 페이지 */
+
+.buy-count {
+    width: 80px;
+    padding-left: 1em;
+    border: 1px solid #aaa;
+    border-radius: 2em;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.search {
+    width: 250px;
+    height: 2em;
+    border: 1px solid #aaa;
+    border-radius: 1em;
+    display: flex;
+}
+.search .icon {
+    width: 2em; height: 2em;
+    text-align: center; line-height: 2em;
+    color: #aaa;
+}
+
+.search input {
+    width: calc(100% - 2em);
+    height: 2em;
+    border: none;
+    background-color: transparent;
+    color: #555;
+    font-size: 0.9em;
+}
+
+
+#drop-area {
+    width: 300px; height: 200px;
+    position: absolute;
+    right: 0; top: 100%;
+    margin-right: 20px; margin-top: 20px;
+    background-color: var(--color);
+    display: none;
+    --color: #30475e;
+}
+#drop-area::before {
+    content: '';
+    position: absolute;
+    bottom: 100%; right: 25px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent var(--color) transparent;
+}
+
+#drop-area.success { --color: #c1a57b; }
+#drop-area.error { --color: #df3a3a; }
+
+#drop-area > div > div { transition: 0.4s; }
+
+#drop-area .success, #drop-area .error, #drop-area.success .normal, #drop-area.error .normal { opacity: 0; }
+#drop-area.success .success, #drop-area.error .error { opacity: 1; }
+
+#open-cart:checked ~ #drop-area { display: block; }
+
+/* /스토어 페이지 */
